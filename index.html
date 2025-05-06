@@ -2,21 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tienda de Refacciones El Motor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #222; color: white; padding: 20px; text-align: center; }
+    body { font-family: Arial, sans-serif; margin: 0; }
+    header, footer { background-color: #222; color: white; padding: 20px; text-align: center; }
     nav { background-color: #444; display: flex; justify-content: center; }
     nav a {
-      color: white; padding: 14px 20px; text-decoration: none; text-transform: uppercase;
+      color: white; padding: 14px 20px; text-decoration: none; cursor: pointer;
     }
     nav a:hover { background-color: #666; }
-    section { padding: 20px; }
+    section { display: none; padding: 20px; }
+    section.active { display: block; }
     .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
     .item { border: 1px solid #ccc; border-radius: 5px; padding: 10px; text-align: center; }
     .item img { width: 100%; height: auto; }
-    footer { background-color: #222; color: white; text-align: center; padding: 10px; }
   </style>
 </head>
 <body>
@@ -27,15 +27,15 @@
 </header>
 
 <nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#novedades">Novedades</a>
-  <a href="#catalogo">Catálogo</a>
-  <a href="#contacto">Contáctanos</a>
-  <a href="#carro">Carro de Compras</a>
+  <a onclick="mostrarSeccion('inicio')">Inicio</a>
+  <a onclick="mostrarSeccion('nosotros')">Nosotros</a>
+  <a onclick="mostrarSeccion('novedades')">Novedades</a>
+  <a onclick="mostrarSeccion('catalogo')">Catálogo</a>
+  <a onclick="mostrarSeccion('contacto')">Contáctanos</a>
+  <a onclick="mostrarSeccion('carro')">Carro de Compras</a>
 </nav>
 
-<section id="inicio">
+<section id="inicio" class="active">
   <h2>Bienvenido</h2>
   <p>Encuentra las mejores refacciones para tu automóvil a precios increíbles. Calidad garantizada.</p>
   <img src="https://images.unsplash.com/photo-1601924579440-ea5f84f0557d" alt="Refacciones" style="width:100%; max-height:300px; object-fit:cover;">
@@ -108,6 +108,14 @@
 <footer>
   <p>&copy; 2025 El Motor Refacciones. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll('section');
+    secciones.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
 
 </body>
 </html>
