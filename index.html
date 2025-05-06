@@ -258,15 +258,64 @@
   }
 
   function generarArticulos(nombreCategoria) {
-    let articulos = [];
-    for (let i = 1; i <= 10; i++) {
-      articulos.push({
-        nombre: `${nombreCategoria} Artículo ${i}`,
-        descripcion: `Descripción detallada del artículo ${i} de la categoría ${nombreCategoria}.`,
-        precio: (500 + i * 10),
-        img: `https://th.bing.com/th/id/OIP.87Y6iYWcCFE3a3I1Sqrp-AAAAA?rs=1&pid=ImgDetMain${encodeURIComponent(nombreCategoria)}+${i}`
-      });
-    }
+  const imagenesPorCategoria = {
+    motor: [
+      "motor1.jpg", "motor2.jpg", "motor3.jpg", "motor4.jpg", "motor5.jpg",
+      "motor6.jpg", "motor7.jpg", "motor8.jpg", "motor9.jpg", "motor10.jpg"
+    ],
+    suspension: [
+      "susp1.jpg", "susp2.jpg", "susp3.jpg", "susp4.jpg", "susp5.jpg",
+      "susp6.jpg", "susp7.jpg", "susp8.jpg", "susp9.jpg", "susp10.jpg"
+    ],
+    frenos: [
+      "freno1.jpg", "freno2.jpg", "freno3.jpg", "freno4.jpg", "freno5.jpg",
+      "freno6.jpg", "freno7.jpg", "freno8.jpg", "freno9.jpg", "freno10.jpg"
+    ],
+    accesorios: [
+      "acc1.jpg", "acc2.jpg", "acc3.jpg", "acc4.jpg", "acc5.jpg",
+      "acc6.jpg", "acc7.jpg", "acc8.jpg", "acc9.jpg", "acc10.jpg"
+    ],
+    electrico: [
+      "elec1.jpg", "elec2.jpg", "elec3.jpg", "elec4.jpg", "elec5.jpg",
+      "elec6.jpg", "elec7.jpg", "elec8.jpg", "elec9.jpg", "elec10.jpg"
+    ],
+    transmision: [
+      "trans1.jpg", "trans2.jpg", "trans3.jpg", "trans4.jpg", "trans5.jpg",
+      "trans6.jpg", "trans7.jpg", "trans8.jpg", "trans9.jpg", "trans10.jpg"
+    ],
+    escape: [
+      "escape1.jpg", "escape2.jpg", "escape3.jpg", "escape4.jpg", "escape5.jpg",
+      "escape6.jpg", "escape7.jpg", "escape8.jpg", "escape9.jpg", "escape10.jpg"
+    ],
+    equipo: [
+      "eq1.jpg", "eq2.jpg", "eq3.jpg", "eq4.jpg", "eq5.jpg",
+      "eq6.jpg", "eq7.jpg", "eq8.jpg", "eq9.jpg", "eq10.jpg"
+    ]
+  };
+
+  const preciosPorCategoria = {
+    motor: [520, 540, 560, 580, 600, 620, 640, 660, 680, 700],
+    suspension: [410, 430, 450, 470, 490, 510, 530, 550, 570, 590],
+    frenos: [310, 330, 350, 370, 390, 410, 430, 450, 470, 490],
+    accesorios: [210, 230, 250, 270, 290, 310, 330, 350, 370, 390],
+    electrico: [610, 630, 650, 670, 690, 710, 730, 750, 770, 790],
+    transmision: [720, 740, 760, 780, 800, 820, 840, 860, 880, 900],
+    escape: [510, 530, 550, 570, 590, 610, 630, 650, 670, 690],
+    equipo: [320, 340, 360, 380, 400, 420, 440, 460, 480, 500]
+  };
+
+  let articulos = [];
+  for (let i = 0; i < 10; i++) {
+    articulos.push({
+      nombre: `${nombreCategoria} Artículo ${i + 1}`,
+      descripcion: `Descripción detallada del artículo ${i + 1} de la categoría ${nombreCategoria}.`,
+      precio: preciosPorCategoria[nombreCategoria.toLowerCase()][i],
+      img: imagenesPorCategoria[nombreCategoria.toLowerCase()][i]
+    });
+  }
+  return articulos;
+}
+
     return articulos;
   }
 </script>
