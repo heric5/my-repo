@@ -56,11 +56,30 @@
 </header>
 
 <nav>
+  <a onclick="mostrarSeccion('inicio')">Inicio</a>
+  <a onclick="mostrarSeccion('nosotros')">Nosotros</a>
+  <a onclick="mostrarSeccion('novedades')">Novedades</a>
   <a onclick="mostrarSeccion('catalogo')">Catálogo</a>
+  <a onclick="mostrarSeccion('contacto')">Contáctanos</a>
   <a onclick="mostrarSeccion('carro')">Carro de Compras</a>
 </nav>
 
-<section id="catalogo" class="active">
+<section id="inicio" class="active">
+  <h2>Bienvenido a El Motor</h2>
+  <p>Tu tienda de refacciones confiable para todo tipo de vehículos.</p>
+</section>
+
+<section id="nosotros">
+  <h2>Sobre Nosotros</h2>
+  <p>Somos una empresa con más de 10 años ofreciendo refacciones de calidad.</p>
+</section>
+
+<section id="novedades">
+  <h2>Novedades</h2>
+  <p>¡Revisa nuestras nuevas refacciones y promociones especiales!</p>
+</section>
+
+<section id="catalogo">
   <h2>Catálogo de Categorías</h2>
   <div class="catalogo">
     <div class="item" onclick="mostrarCategoria('motor')">
@@ -96,10 +115,13 @@
       <h4>Accesorios</h4>
     </div>
   </div>
-  
-  <!-- Subcatálogos dinámicos -->
   <div id="subcatalogo" class="subcatalogo"></div>
   <div id="detalle" class="detalle-producto"></div>
+</section>
+
+<section id="contacto">
+  <h2>Contáctanos</h2>
+  <p>Escríbenos a contacto@elmotor.com o llámanos al 555-123-4567</p>
 </section>
 
 <section id="carro">
