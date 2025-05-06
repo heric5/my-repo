@@ -47,12 +47,43 @@
       width: 100%;
       max-width: 400px;
     }
+    .carro-item {
+      margin-bottom: 10px;
+    }
+    .carro-item input[type='number'] {
+      width: 40px;
+      margin-left: 10px;
+    }
+    .carro-item button {
+      margin-left: 10px;
+    }
+    #hacer-pedido {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .header-flex img {
+      height: 50px;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Tienda de Refacciones "El Motor"</h1>
+  <div class="header-flex">
+    <img src="https://via.placeholder.com/50" alt="Logo">
+    <h1>Tienda de Refacciones "El Motor"</h1>
+  </div>
 </header>
 
 <nav>
@@ -126,7 +157,8 @@
 
 <section id="carro">
   <h2>Carro de Compras</h2>
-  <ul id="carro-lista"></ul>
+  <div id="carro-lista"></div>
+  <button id="hacer-pedido" onclick="hacerPedido()">Hacer Pedido</button>
 </section>
 
 <footer>
@@ -145,9 +177,12 @@
     accesorios: generarArticulos("Accesorios")
   };
 
+  const carrito = [];
+
   function mostrarSeccion(id) {
     document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    if (id === 'carro') mostrarCarrito();
   }
 
   function mostrarCategoria(nombre) {
@@ -178,11 +213,43 @@
   }
 
   function agregarCarrito(nombre, precio) {
-    const lista = document.getElementById('carro-lista');
-    const item = document.createElement('li');
-    item.textContent = `${nombre} - $${precio}`;
-    lista.appendChild(item);
+    const existente = carrito.find(item => item.nombre === nombre);
+    if (existente) {
+      existente.cantidad++;
+    } else {
+      carrito.push({ nombre, precio, cantidad: 1 });
+    }
     alert("Producto añadido al carrito");
+  }
+
+  function mostrarCarrito() {
+    const contenedor = document.getElementById('carro-lista');
+    contenedor.innerHTML = '';
+    carrito.forEach((item, index) => {
+      contenedor.innerHTML += `
+        <div class='carro-item'>
+          ${item.nombre} - $${item.precio} x 
+          <input type='number' value='${item.cantidad}' min='1' onchange='actualizarCantidad(${index}, this.value)'>
+          <button onclick='eliminarDelCarrito(${index})'>Eliminar</button>
+        </div>
+      `;
+    });
+  }
+
+  function actualizarCantidad(index, cantidad) {
+    carrito[index].cantidad = parseInt(cantidad);
+    mostrarCarrito();
+  }
+
+  function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    mostrarCarrito();
+  }
+
+  function hacerPedido() {
+    alert("Pedido realizado. Gracias por su compra.");
+    carrito.length = 0;
+    mostrarCarrito();
   }
 
   function generarArticulos(nombreCategoria) {
