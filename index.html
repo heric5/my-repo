@@ -7,16 +7,42 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; }
     header, footer { background-color: #222; color: white; padding: 20px; text-align: center; }
-    nav { background-color: #444; display: flex; justify-content: center; }
+    nav { background-color: #444; display: flex; justify-content: center; flex-wrap: wrap; }
     nav a {
       color: white; padding: 14px 20px; text-decoration: none; cursor: pointer;
     }
     nav a:hover { background-color: #666; }
     section { display: none; padding: 20px; }
     section.active { display: block; }
-    .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-    .item { border: 1px solid #ccc; border-radius: 5px; padding: 10px; text-align: center; }
-    .item img { width: 100%; height: auto; }
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .subcatalogo {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 2px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -57,32 +83,47 @@
 
 <section id="catalogo">
   <h2>Catálogo por Categoría</h2>
-
-  <h3>⚙️ Motor</h3>
   <div class="catalogo">
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1603363053637-2f04d5d02b2c" alt="Pistones">
-      <h4>Pistones</h4>
-      <p>$1,200 MXN</p>
+    <div class="item" onclick="mostrarArticulos('motor')">
+      <img src="https://images.unsplash.com/photo-1603363053637-2f04d5d02b2c" alt="Motor">
+      <h4>Motor</h4>
     </div>
-    <div class="item">
-      <img src="https://http2.mlstatic.com/D_NQ_NP_898135-MLM73345964705_122023-O.webp" alt="Bomba de aceite">
-      <h4>Bomba de Aceite</h4>
-      <p>$850 MXN</p>
+    <div class="item" onclick="mostrarArticulos('suspension')">
+      <img src="https://images.unsplash.com/photo-1571604102350-d1c789d1d08b" alt="Suspensión">
+      <h4>Suspensión</h4>
     </div>
   </div>
 
-  <h3>🛞 Suspensión</h3>
-  <div class="catalogo">
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1571604102350-d1c789d1d08b" alt="Amortiguadores">
-      <h4>Amortiguadores</h4>
-      <p>$950 MXN</p>
+  <!-- Artículos por categoría -->
+  <div id="motor" class="subcatalogo" style="display: none;">
+    <h3>Artículos de Motor</h3>
+    <div class="catalogo">
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1603363053637-2f04d5d02b2c" alt="Pistones">
+        <h4>Pistones</h4>
+        <p>$1,200 MXN</p>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1590563362707-29134d1bbdd6" alt="Bomba de aceite">
+        <h4>Bomba de Aceite</h4>
+        <p>$850 MXN</p>
+      </div>
     </div>
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1585763364069-e8f28942fcaa" alt="Resortes">
-      <h4>Resortes</h4>
-      <p>$450 MXN</p>
+  </div>
+
+  <div id="suspension" class="subcatalogo" style="display: none;">
+    <h3>Artículos de Suspensión</h3>
+    <div class="catalogo">
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1571604102350-d1c789d1d08b" alt="Amortiguadores">
+        <h4>Amortiguadores</h4>
+        <p>$950 MXN</p>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1585763364069-e8f28942fcaa" alt="Resortes">
+        <h4>Resortes</h4>
+        <p>$450 MXN</p>
+      </div>
     </div>
   </div>
 </section>
@@ -114,6 +155,19 @@
     const secciones = document.querySelectorAll('section');
     secciones.forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+  }
+
+  function mostrarArticulos(categoria) {
+    // Ocultar todos los subcatálogos
+    const subcatalogos = document.querySelectorAll('.subcatalogo');
+    subcatalogos.forEach(sc => sc.style.display = 'none');
+
+    // Mostrar el que corresponde
+    const seleccionada = document.getElementById(categoria);
+    if (seleccionada) {
+      seleccionada.style.display = 'block';
+      seleccionada.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 </script>
 
