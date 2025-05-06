@@ -256,22 +256,14 @@
 
   function generarArticulos(nombreCategoria) {
     const datosPorCategoria = {
-      "Motor": {
-        precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor${i+1}`)
-      },
-      "Suspensión": {
-        precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 600],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
-      },
-       "Frenos": {
-        precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 660],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
-      },
-      "Accesorios": {
-        precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 680],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
-      },
+      motor: [520, 540, 560, 580, 600, 620, 640, 660, 680, 700],
+      suspension: [410, 430, 450, 470, 490, 510, 530, 550, 570, 590],
+      frenos: [310, 330, 350, 370, 390, 410, 430, 450, 470, 490],
+      accesorios: [210, 230, 250, 270, 290, 310, 330, 350, 370, 390],
+      electrico: [610, 630, 650, 670, 690, 710, 730, 750, 770, 790],
+      transmision: [720, 740, 760, 780, 800, 820, 840, 860, 880, 900],
+      escape: [510, 530, 550, 570, 590, 610, 630, 650, 670, 690],
+      equipo: [320, 340, 360, 380, 400, 420, 440, 460, 480, 500]
     };
 
     const datos = datosPorCategoria[nombreCategoria];
