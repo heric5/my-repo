@@ -148,7 +148,7 @@
     </div>
     <div class="item" onclick="mostrarCategoria('equipo')">
       <img src="https://th.bing.com/th/id/OIP.cNL6LTBDBpaaROnC9-Yx0QHaGl?rs=1&pid=ImgDetMain">
-      <h4>Accesorios</h4>
+      <h4>Equipo de proteccion</h4>
     </div>
     <!-- Más ítems de categorías aquí -->
   </div>
@@ -178,9 +178,9 @@
     frenos: generarArticulos("Frenos"),
     accesorios: generarArticulos("Accesorios"),
     electrico: generarArticulos("Eléctrico"),
-    transmision: generarArticulos("Transmisión"),
+    transmision: generarArticulos("Transmision"),
     escape: generarArticulos("Escapes"),
-    equipo: generarArticulos("Equipo de protección")
+    equipo: generarArticulos("Equipo de proteccion")
   };
 
   const carrito = [];
@@ -387,8 +387,135 @@
     "Protector de manetas con diseño deportivo.",
     "Tapa de tanque cromada para personalización."
   ]
-}
-
+  },
+    "Eléctrico": {
+  nombres: [
+    "Arnés Principal Universal", "Interruptor de Encendido", "Relé de Arranque 12V",
+    "Fusiblera Sellada", "Conectores Rápidos de Cableado", "Controlador de Luces",
+    "Sensor de Posición", "Cables para Batería", "Caja de Relevadores", "Arnés para Luces LED"
+  ],
+  precios: [300, 180, 150, 220, 100, 200, 250, 130, 190, 210],
+  imagenes: [
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec1",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec2",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec3",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec4",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec5",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec6",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec7",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec8",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec9",
+    "https://via.placeholder.com/150/FFFF00/000000?text=Elec10"
+  ],
+  descripciones: [
+    "Arnés eléctrico universal compatible con múltiples modelos.",
+    "Interruptor de encendido resistente al agua.",
+    "Relé de arranque de 12 voltios de alto rendimiento.",
+    "Caja de fusibles sellada con protección contra sobrecarga.",
+    "Conectores de empalme rápido para instalaciones seguras.",
+    "Controlador para sistema de luces múltiples.",
+    "Sensor de posición del cigüeñal de precisión.",
+    "Cables de batería con terminales reforzados.",
+    "Caja con espacio para múltiples relevadores.",
+    "Arnés específico para instalación de luces LED."
+  ]
+  },
+    "Transmisiones": {
+  nombres: [
+    "Cadena de Transmisión 520", "Piñón de 14 Dientes", "Corona de Transmisión 38 Dientes",
+    "Kit de Transmisión Completo", "Cadena 530 con O-Ring", "Piñón de 17 Dientes",
+    "Correa de Transmisión", "Piñón de Desmultiplicación", "Cadena para Motocross", "Soporte de Piñón"
+  ],
+  precios: [180, 120, 150, 350, 210, 130, 200, 160, 180, 100],
+  imagenes: [
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans1",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans2",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans3",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans4",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans5",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans6",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans7",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans8",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans9",
+    "https://via.placeholder.com/150/00FF00/000000?text=Trans10"
+  ],
+  descripciones: [
+    "Cadena de transmisión 520 de alta resistencia para uso intensivo.",
+    "Piñón de 14 dientes para mejorar la aceleración de la moto.",
+    "Corona de transmisión de 38 dientes para mejorar el rendimiento general.",
+    "Kit completo de transmisión para mejorar la potencia de la moto.",
+    "Cadena 530 con O-Ring para mayor durabilidad y menor fricción.",
+    "Piñón de 17 dientes para mayor velocidad máxima.",
+    "Correa de transmisión compatible con modelos de moto específicos.",
+    "Piñón de desmultiplicación para motos deportivas.",
+    "Cadena resistente especialmente diseñada para motocross.",
+    "Soporte de piñón reforzado para un ajuste más seguro."
+  ]
+  },
+    "Escapes": {
+  nombres: [
+    "Escape Akrapovic Full System", "Escape Yoshimura RS-9", "Escape FMF Powercore 4",
+    "Escape SC-Project MotoGP", "Escape Arrow Racing", "Escape Two Brothers Racing",
+    "Escape Remus Hexacone", "Escape Mivv X-Cone", "Escape LeoVince LV One", "Escape Vance & Hines",
+  ],
+  precios: [980, 850, 740, 1200, 780, 650, 920, 700, 640, 1050],
+  imagenes: [
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape1",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape2",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape3",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape4",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape5",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape6",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape7",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape8",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape9",
+    "https://via.placeholder.com/150/FF4500/FFFFFF?text=Escape10"
+  ],
+  descripciones: [
+    "Escape completo Akrapovic Full System de alta gama para motos deportivas.",
+    "Escape Yoshimura RS-9 para maximizar el rendimiento en moto de competición.",
+    "Escape FMF Powercore 4 para aumentar la potencia y el sonido de tu moto.",
+    "Escape SC-Project MotoGP, diseñado para un rendimiento superior en carreras.",
+    "Escape Arrow Racing con tecnología avanzada para mejorar la aceleración.",
+    "Escape Two Brothers Racing con sonido característico y máximo rendimiento.",
+    "Escape Remus Hexacone, un sistema de escape innovador para mejorar el flujo de gases.",
+    "Escape Mivv X-Cone con diseño único y rendimiento mejorado.",
+    "Escape LeoVince LV One de fácil instalación y rendimiento excelente.",
+    "Escape Vance & Hines, ideal para motos de alto rendimiento y estilo único."
+  ]
+ },
+  "Equipo de Protección": {
+  nombres: [
+    "Casco Integral HJC RPHA 11", "Guantes Alpinestars Supertech M10", "Botas Sidi Crossfire 3",
+    "Chaqueta Dainese Racing", "Rodilleras Leatt 3DF", "Protector de Espalda Alpinestars Bionic",
+    "Chaqueta Rev'it! Airwave 3", "Guantes Held Sambia", "Pantalones Fox Racing 180", "Botines de Motocross Gaerne SG-12"
+  ],
+  precios: [500, 120, 380, 250, 150, 230, 180, 90, 100, 350],
+  imagenes: [
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Casco1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Guantes1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Botas1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Chaqueta1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Rodilleras1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=ProtectorEspalda1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Chaqueta2",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Guantes2",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Pantalones1",
+    "https://via.placeholder.com/150/0000FF/FFFFFF?text=Botines1"
+  ],
+  descripciones: [
+    "Casco integral HJC RPHA 11 para máximo confort y seguridad en carreras.",
+    "Guantes Alpinestars Supertech M10, con protección avanzada para las manos.",
+    "Botas Sidi Crossfire 3, diseñadas para máxima protección y durabilidad en motocross.",
+    "Chaqueta Dainese Racing, ideal para pilotos que buscan un alto rendimiento.",
+    "Rodilleras Leatt 3DF, con tecnología avanzada para protección en caídas.",
+    "Protector de espalda Alpinestars Bionic, perfecto para proteger la columna vertebral.",
+    "Chaqueta Rev'it! Airwave 3, ligera y ventilada para climas cálidos.",
+    "Guantes Held Sambia, con refuerzos de seguridad y confort para largos viajes.",
+    "Pantalones Fox Racing 180, ideales para motocross y deportes de motor.",
+    "Botines de Motocross Gaerne SG-12, con una protección incomparable en el tobillo."
+  ]
+ },
   };
 
   const datos = datosPorCategoria[nombreCategoria] || {
