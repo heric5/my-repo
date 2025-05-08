@@ -360,28 +360,6 @@
 
   return articulos;
 }
-
-
-  const datos = datosPorCategoria[nombreCategoria] || {
-    nombres: Array(10).fill(`${nombreCategoria} Artículo`),
-    precios: Array(10).fill(499),
-    imagenes: Array(10).fill("https://via.placeholder.com/150"),
-    descripciones: Array(10).fill(`Descripción del artículo de la categoría ${nombreCategoria}.`)
-  };
-
-  const articulos = [];
-
-  for (let i = 0; i < 10; i++) {
-    articulos.push({
-      nombre: datos.nombres[i] || `${nombreCategoria} Artículo ${i + 1}`,
-      descripcion: datos.descripciones[i] || `Descripción del artículo ${i + 1}`,
-      precio: datos.precios[i],
-      img: datos.imagenes[i]
-    });
-  }
-
-  return articulos;
-}
 </script>
 
 </body>
