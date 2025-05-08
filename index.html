@@ -137,6 +137,7 @@
   <a onclick="mostrarSeccion('catalogo')">Catálogo</a>
   <a onclick="mostrarSeccion('contacto')">Contáctanos</a>
   <a onclick="mostrarSeccion('carro')">Carro de Compras</a>
+  <a onclick="mostrarSeccion('mi-cuenta')">Mi Cuenta</a>
 </nav>
 
 <section id="inicio" class="active" style="text-align: center; padding: 40px 20px;">
@@ -284,11 +285,90 @@
   <button id="hacer-pedido" onclick="hacerPedido()">Hacer Pedido</button>
 </section>
 
+<section id="mi-cuenta" style="padding: 40px 20px; background-color: #f4f4f4;">
+  <h2 style="text-align: center; font-size: 2.5em; color: #2c3e50;">Mi Cuenta</h2>
+
+  <!-- Información Personal -->
+  <details style="margin: 20px 0; background: white; padding: 20px; border-radius: 10px;">
+    <summary style="font-size: 1.2em; cursor: pointer;"><strong>👤 Información Personal</strong></summary>
+    <form style="margin-top: 15px;">
+      <label>Nombre completo:</label><br>
+      <input type="text" name="nombre" placeholder="Juan Pérez"><br><br>
+
+      <label>Correo electrónico:</label><br>
+      <input type="email" name="correo" placeholder="juan@example.com"><br><br>
+
+      <label>Teléfono:</label><br>
+      <input type="tel" name="telefono" placeholder="555-123-4567"><br><br>
+
+      <button type="submit">Guardar Cambios</button>
+    </form>
+  </details>
+
+  <!-- Dirección -->
+  <details style="margin: 20px 0; background: white; padding: 20px; border-radius: 10px;">
+    <summary style="font-size: 1.2em; cursor: pointer;"><strong>🏠 Dirección de Envío</strong></summary>
+    <form style="margin-top: 15px;">
+      <label>Calle y número:</label><br>
+      <input type="text" name="calle" placeholder="Av. Reforma 123"><br><br>
+
+      <label>Colonia:</label><br>
+      <input type="text" name="colonia" placeholder="Centro"><br><br>
+
+      <label>Ciudad:</label><br>
+      <input type="text" name="ciudad" placeholder="Ciudad de México"><br><br>
+
+      <label>Código Postal:</label><br>
+      <input type="text" name="cp" placeholder="06000"><br><br>
+
+      <button type="submit">Guardar Dirección</button>
+    </form>
+  </details>
+
+  <!-- Pedidos -->
+  <details style="margin: 20px 0; background: white; padding: 20px; border-radius: 10px;">
+    <summary style="font-size: 1.2em; cursor: pointer;"><strong>📦 Mis Pedidos</strong></summary>
+    <ul style="margin-top: 15px; list-style: none; padding-left: 0;">
+      <li><strong>Pedido #00123</strong> - 12/04/2025 - Enviado</li>
+      <li><strong>Pedido #00110</strong> - 03/04/2025 - Entregado</li>
+      <li><strong>Pedido #00098</strong> - 25/03/2025 - Cancelado</li>
+    </ul>
+  </details>
+
+  <!-- Contraseña -->
+  <details style="margin: 20px 0; background: white; padding: 20px; border-radius: 10px;">
+    <summary style="font-size: 1.2em; cursor: pointer;"><strong>🔒 Cambiar Contraseña</strong></summary>
+    <form style="margin-top: 15px;">
+      <label>Contraseña actual:</label><br>
+      <input type="password" name="actual"><br><br>
+
+      <label>Nueva contraseña:</label><br>
+      <input type="password" name="nueva"><br><br>
+
+      <label>Confirmar nueva contraseña:</label><br>
+      <input type="password" name="confirmar"><br><br>
+
+      <button type="submit">Actualizar Contraseña</button>
+    </form>
+  </details>
+
+  <!-- Cerrar sesión -->
+  <div style="text-align: center; margin-top: 30px;">
+    <button onclick="cerrarSesion()" style="padding: 10px 20px; background-color: #e74c3c; color: white; border: none; font-size: 1em; border-radius: 5px;">
+      🚪 Cerrar Sesión
+    </button>
+  </div>
+</section>
+
 <footer>
   <p>&copy; 2025 refacciones vazquez</p>
 </footer>
 
 <script>
+  function cerrarSesion() {
+    alert("Sesión cerrada correctamente.");
+    // Aquí puedes redirigir o limpiar datos de sesión si estás usando backend
+  }
   const categorias = {
     motor: generarArticulos("Motor"),
     suspension: generarArticulos("Suspension"),
