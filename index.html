@@ -259,54 +259,55 @@
   }
 
   function generarArticulos(nombreCategoria) {
-    const datosPorCategoria = {
-      "Motor": {
-        precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
-        imagenes: [
-          "https://2.bp.blogspot.com/_nhBrldq4F08/TPQ0lWv0h0I/AAAAAAAAAKo/bo1DOGNw6YI/s1600/yamaha_yzf_r15_150cc_engine-vixion.jpg",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor2",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor3",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor4",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor5",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor6",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor7",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor8",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor9",
-          "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor10"
-        ]
-        descripciones: [
-         "Motor Yamaha 150cc de alto rendimiento.",
-         "Bloque de motor reforzado para motocross.",
-         "Kit de cilindro con pistón incluido.",
-         "Cigüeñal templado para máxima durabilidad.",
-         "Cabezal de motor optimizado para flujo de aire.",
-         "Bomba de aceite de alta presión.",
-         "Árbol de levas de competición.",
-         "Juego de válvulas de titanio.",
-         "Motor completo reacondicionado.",
-         "Sistema de encendido electrónico de alto voltaje."
-        ]
-      }
-    };
-
-    const datos = datosPorCategoria[nombreCategoria] || {
-      precios: Array(10).fill(499),
-      imagenes: Array(10).fill("https://via.placeholder.com/150")
-    };
-
-    const articulos = [];
-
-    for (let i = 0; i < 10; i++) {
-      articulos.push({
-        nombre: `${nombreCategoria} Artículo ${i + 1}`,
-        descripcion: `Descripción detallada del artículo ${i + 1} de la categoría ${nombreCategoria}.`,
-        precio: datos.precios[i],
-        img: datos.imagenes[i]
-      });
+  const datosPorCategoria = {
+    "Motor": {
+      precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
+      imagenes: [
+        "https://2.bp.blogspot.com/_nhBrldq4F08/TPQ0lWv0h0I/AAAAAAAAAKo/bo1DOGNw6YI/s1600/yamaha_yzf_r15_150cc_engine-vixion.jpg",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor2",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor3",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor4",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor5",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor6",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor7",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor8",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor9",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor10"
+      ],
+      descripciones: [
+        "Motor Yamaha 150cc de alto rendimiento.",
+        "Bloque de motor reforzado para motocross.",
+        "Kit de cilindro con pistón incluido.",
+        "Cigüeñal templado para máxima durabilidad.",
+        "Cabezal de motor optimizado para flujo de aire.",
+        "Bomba de aceite de alta presión.",
+        "Árbol de levas de competición.",
+        "Juego de válvulas de titanio.",
+        "Motor completo reacondicionado.",
+        "Sistema de encendido electrónico de alto voltaje."
+      ]
     }
+  };
 
-    return articulos;
+  const datos = datosPorCategoria[nombreCategoria] || {
+    precios: Array(10).fill(499),
+    imagenes: Array(10).fill("https://via.placeholder.com/150"),
+    descripciones: Array(10).fill(`Descripción detallada del artículo de la categoría ${nombreCategoria}.`)
+  };
+
+  const articulos = [];
+
+  for (let i = 0; i < 10; i++) {
+    articulos.push({
+      nombre: `${nombreCategoria} Artículo ${i + 1}`,
+      descripcion: datos.descripciones[i] || `Descripción del artículo ${i + 1}`,
+      precio: datos.precios[i],
+      img: datos.imagenes[i]
+    });
   }
+
+  return articulos;
+}
 </script>
 
 </body>
