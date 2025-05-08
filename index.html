@@ -144,7 +144,7 @@
     </div>
     <div class="item" onclick="mostrarCategoria('escape')">
       <img src="https://www.boomten.com/images/escapesdemoto_2.jpg">
-      <h4>Escape</h4>
+      <h4>Escapes</h4>
     </div>
     <div class="item" onclick="mostrarCategoria('equipo')">
       <img src="https://th.bing.com/th/id/OIP.cNL6LTBDBpaaROnC9-Yx0QHaGl?rs=1&pid=ImgDetMain">
@@ -255,16 +255,12 @@
   }
 
   function generarArticulos(nombreCategoria) {
-    const datosPorCategoria = {
+    const Categoria = {
       "Motor": {
         precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
         imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor${i+1}`)
       },
       "Suspensión": {
-        precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 600],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
-      },
-      "Frenos": {
         precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 600],
         imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
       },
