@@ -326,6 +326,21 @@
     }
   };
 
+  const datos = datosPorCategoria[nombreCategoria];
+  const articulos = [];
+
+  for (let i = 0; i < 10; i++) {
+    articulos.push({
+      nombre: datos.nombres[i],
+      descripcion: datos.descripciones[i],
+      precio: datos.precios[i],
+      img: datos.imagenes[i]
+    });
+  }
+
+  return articulos;
+}
+
 function mostrarArticulos(nombreCategoria) {
   const contenedor = document.getElementById("contenedor-articulos");
   contenedor.innerHTML = "";
