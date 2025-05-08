@@ -14,13 +14,6 @@
     nav a:hover { background-color: #666; }
     section { display: none; padding: 20px; }
     section.active { display: block; }
-    
-    html, body {
-      height: auto;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-    }
-
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -32,7 +25,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      min-height: 10vh;
       text-align: center;
 }
 
@@ -156,13 +149,10 @@
       </ul>
     </div>
     <div class="imagenes">
-      <a href="#catalogo" onclick="mostrarSeccion('catalogo')">
         <img src="https://th.bing.com/th/id/R.13bc4b3164ab373ac0d70371707a660c?rik=o9Uhu4%2fg%2bPz4RA&pid=ImgRaw&r=0" alt="Ir al catalogo">
-      </a>
-      <a href="#catalogo">
+      </a
         <img src="imagenes/llanta.png" alt="Llanta para motocicleta">
       </a>
-      <a href="#catalogo">
         <img src="imagenes/casco.png" alt="Casco de seguridad">
       </a>
     </div>
