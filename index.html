@@ -172,7 +172,7 @@
 </footer>
 
 <script>
-  const categorias = {
+  const nombreCategorias = {
     motor: generarArticulos("Motor"),
     suspension: generarArticulos("Suspensión"),
     frenos: generarArticulos("Frenos"),
@@ -254,17 +254,23 @@
     mostrarCarrito();
   }
 
-  function generarArticulos(nombreCategoria) {
-    const datosPorCategoria = {
-      "Motor": {
-        precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor${i+1}`)
-      },
-      "Suspensión": {
-        precios: [480, 510, 495, 530, 520, 500, 540, 560, 580, 600],
-        imagenes: Array.from({ length: 10 }, (_, i) => `https://via.placeholder.com/150/00FF00/FFFFFF?text=Susp${i+1}`)
-      },
-    };
+  function generarArticulos(nombreCategorias) {
+  const datosPorCategoria = {
+    "Motor": {
+      precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
+      imagenes: [
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor1",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor2",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor3",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor4",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor5",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor6",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor7",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor8",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor9",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor10"
+      ]
+    },
 
     const datos = datosPorCategoria[nombreCategoria];
     let articulos = [];
