@@ -262,9 +262,16 @@
   const datosPorCategoria = {
     "Motor": {
       nombres: [
-        "Motor Yamaha 150cc", "Bloque Reforzado MX", "Kit de Cilindro y Pistón",
-        "Cigüeñal Templado", "Cabezal Optimizado", "Bomba de Aceite HP",
-        "Árbol de Levas Racing", "Válvulas de Titanio", "Motor Reacondicionado", "Encendido Electrónico"
+        "Motor Yamaha 150cc",
+        "Bloque Reforzado MX",
+        "Kit de Cilindro y Pistón",
+        "Cigüeñal Templado",
+        "Cabezal Optimizado",
+        "Bomba de Aceite HP",
+        "Árbol de Levas Racing",
+        "Válvulas de Titanio",
+        "Motor Reacondicionado",
+        "Encendido Electrónico"
       ],
       precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
       imagenes: [
@@ -291,48 +298,22 @@
         "Motor completo reacondicionado.",
         "Sistema de encendido electrónico de alto voltaje."
       ]
-    },
-    "Suspencion": {
-      nombres: [
-        "Amortiguador Trasero Pro", "Resorte de Suspensión Alta", "Suspensión Hidráulica Frontal",
-        "Kit de Horquilla Deportiva", "Soporte de Amortiguador CNC", "Amortiguador con Gas Nitrogenado",
-        "Suspensión Ajustable Racing", "Horquilla Telescópica Premium", "Sistema de Doble Amortiguador", "Buje de Suspensión Reforzado"
-      ],
-      precios: [430, 390, 610, 550, 470, 490, 650, 720, 580, 600],
-      imagenes: [
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp1",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp2",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp3",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp4",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp5",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp6",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp7",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp8",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp9",
-        "https://via.placeholder.com/150/FF0000/FFFFFF?text=Susp10"
-      ],
-      descripciones: [
-        "Amortiguador trasero con mayor absorción de impacto.",
-        "Resorte de acero templado para uso extremo.",
-        "Suspensión hidráulica de respuesta rápida.",
-        "Horquilla delantera para manejo deportivo.",
-        "Soporte de aluminio mecanizado por CNC.",
-        "Amortiguador con carga de gas para estabilidad.",
-        "Suspensión trasera ajustable en altura.",
-        "Horquilla premium para todo terreno.",
-        "Doble amortiguador con mayor capacidad de carga.",
-        "Buje reforzado para uso intensivo."
-      ]
     }
   };
 
-  const datos = datosPorCategoria[nombreCategoria];
+  const datos = datosPorCategoria[nombreCategoria] || {
+    nombres: Array(10).fill(`${nombreCategoria} Artículo`),
+    precios: Array(10).fill(499),
+    imagenes: Array(10).fill("https://via.placeholder.com/150"),
+    descripciones: Array(10).fill(`Descripción del artículo de la categoría ${nombreCategoria}.`)
+  };
+
   const articulos = [];
 
   for (let i = 0; i < 10; i++) {
     articulos.push({
-      nombre: datos.nombres[i],
-      descripcion: datos.descripciones[i],
+      nombre: datos.nombres[i] || `${nombreCategoria} Artículo ${i + 1}`,
+      descripcion: datos.descripciones[i] || `Descripción del artículo ${i + 1}`,
       precio: datos.precios[i],
       img: datos.imagenes[i]
     });
@@ -341,24 +322,7 @@
   return articulos;
 }
 
-function mostrarArticulos(nombreCategoria) {
-  const contenedor = document.getElementById("contenedor-articulos");
-  contenedor.innerHTML = "";
 
-  const articulos = generarArticulos(nombreCategoria);
-
-  articulos.forEach(articulo => {
-    const div = document.createElement("div");
-    div.className = "tarjeta";
-    div.innerHTML = `
-      <img src="${articulo.img}" alt="${articulo.nombre}">
-      <h3>${articulo.nombre}</h3>
-      <p>${articulo.descripcion}</p>
-      <p><strong>$${articulo.precio}</strong></p>
-    `;
-    contenedor.appendChild(div);
-  });
-}
 </script>
 
 </body>
