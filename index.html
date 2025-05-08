@@ -20,6 +20,45 @@
       gap: 20px;
       margin-top: 20px;
     }
+    .inicio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 20px;
+    }
+
+   .inicio-contenido {
+       display: flex;
+       flex-direction: row;
+       gap: 40px;
+       max-width: 1200px;
+       align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      flex: 1;
+       min-width: 300px;
+    }
+
+    .imagenes {
+       flex: 1;
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+       gap: 20px;
+    }
+
+    .imagenes img {
+         width: 150px;
+         height: auto;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
     .item, .producto {
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -66,14 +105,6 @@
       cursor: pointer;
       font-size: 16px;
     }
-    #inicio {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* centra verticalmente */
-      align-items: center;     /* centra horizontalmente */
-      height: 10vh;           /* altura total del viewport */
-      text-align: center;      /* centra el texto dentro de los elementos */
-}
     .header-flex {
       display: flex;
       align-items: center;
@@ -108,9 +139,30 @@
 </nav>
 
 <section id="inicio" class="active">
-  <h1>Bienvenido a refaccionaria "Vazquez"</h1>
-  <p>Tu tienda de refacciones confiable para todo tipo de motocicletas.</p>
+  <div class="inicio-contenido">
+    <div class="texto">
+      <h1>Bienvenido a Refaccionaria "Vazquez"</h1>
+      <p>Somos tu aliado confiable en refacciones para todo tipo de motocicletas. Calidad, servicio y compromiso nos distinguen.</p>
+      <ul>
+        <li>🔧 Refacciones originales y genéricas</li>
+        <li>🏍️ Accesorios para todo tipo de motocicletas</li>
+        <li>🛠️ Servicio técnico especializado</li>
+      </ul>
+    </div>
+    <div class="imagenes">
+      <a href="#catalogo">
+        <img src="https://th.bing.com/th/id/R.13bc4b3164ab373ac0d70371707a660c?rik=o9Uhu4%2fg%2bPz4RA&pid=ImgRaw&r=0" alt="Refacción de motor">
+      </a>
+      <a href="#catalogo">
+        <img src="imagenes/llanta.png" alt="Llanta para motocicleta">
+      </a>
+      <a href="#catalogo">
+        <img src="imagenes/casco.png" alt="Casco de seguridad">
+      </a>
+    </div>
+  </div>
 </section>
+
 
 <section id="nosotros">
   <h2>Sobre Nosotros</h2>
