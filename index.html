@@ -14,6 +14,12 @@
     nav a:hover { background-color: #666; }
     section { display: none; padding: 20px; }
     section.active { display: block; }
+    
+    html, body {
+      height: auto;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
 
     .catalogo {
       display: grid;
@@ -21,15 +27,14 @@
       gap: 20px;
       margin-top: 20px;
     }
-    .inicio {
+    #inicio {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      height: 100vh;
-      background-color: #f8f9fa;
+      align-items: center;
+      min-height: 100vh;
       text-align: center;
-      padding: 20px;
-    }
+}
 
    .inicio-contenido {
        display: flex;
