@@ -172,11 +172,15 @@
 </footer>
 
 <script>
-  const nombreCategorias = {
+  const categorias = {
     motor: generarArticulos("Motor"),
     suspension: generarArticulos("Suspensión"),
     frenos: generarArticulos("Frenos"),
     accesorios: generarArticulos("Accesorios"),
+    electrico: generarArticulos("Eléctrico"),
+    transmision: generarArticulos("Transmisión"),
+    escape: generarArticulos("Escapes"),
+    equipo: generarArticulos("Equipo de protección")
   };
 
   const carrito = [];
@@ -272,20 +276,44 @@
       ]
     },
 
-    const datos = datosPorCategoria[nombreCategoria];
-    let articulos = [];
+    function generarArticulos(nombreCategoria) {
+  const datosPorCategoria = {
+    "Motor": {
+      precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
+      imagenes: [
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor1",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor2",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor3",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor4",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor5",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor6",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor7",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor8",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor9",
+        "https://via.placeholder.com/150/0000FF/FFFFFF?text=Motor10"
+      ]
+    },
+    // Aquí puedes agregar datos similares para otras categorías si lo deseas
+  };
 
-    for (let i = 0; i < 10; i++) {
-      articulos.push({
-        nombre: `${nombreCategoria} Artículo ${i + 1}`,
-        descripcion: `Descripción detallada del artículo ${i + 1} de la categoría ${nombreCategoria}.`,
-        precio: datos.precios[i],
-        img: datos.imagenes[i]
-      });
-    }
+  const datos = datosPorCategoria[nombreCategoria] || {
+    precios: Array(10).fill(499),
+    imagenes: Array(10).fill("https://via.placeholder.com/150")
+  };
 
-    return articulos;
+  const articulos = [];
+
+  for (let i = 0; i < 10; i++) {
+    articulos.push({
+      nombre: `${nombreCategoria} Artículo ${i + 1}`,
+      descripcion: `Descripción detallada del artículo ${i + 1} de la categoría ${nombreCategoria}.`,
+      precio: datos.precios[i],
+      img: datos.imagenes[i]
+    });
   }
+
+  return articulos;
+}
 </script>
 
 </body>
