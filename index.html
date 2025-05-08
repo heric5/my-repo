@@ -261,6 +261,18 @@
   function generarArticulos(nombreCategoria) {
   const datosPorCategoria = {
     "Motor": {
+      nombres: [
+        "Motor Yamaha 150cc",
+        "Bloque Reforzado MX",
+        "Kit de Cilindro y Pistón",
+        "Cigüeñal Templado",
+        "Cabezal Optimizado",
+        "Bomba de Aceite HP",
+        "Árbol de Levas Racing",
+        "Válvulas de Titanio",
+        "Motor Reacondicionado",
+        "Encendido Electrónico"
+      ],
       precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
       imagenes: [
         "https://2.bp.blogspot.com/_nhBrldq4F08/TPQ0lWv0h0I/AAAAAAAAAKo/bo1DOGNw6YI/s1600/yamaha_yzf_r15_150cc_engine-vixion.jpg",
@@ -290,16 +302,17 @@
   };
 
   const datos = datosPorCategoria[nombreCategoria] || {
+    nombres: Array(10).fill(`${nombreCategoria} Artículo`),
     precios: Array(10).fill(499),
     imagenes: Array(10).fill("https://via.placeholder.com/150"),
-    descripciones: Array(10).fill(`Descripción detallada del artículo de la categoría ${nombreCategoria}.`)
+    descripciones: Array(10).fill(`Descripción del artículo de la categoría ${nombreCategoria}.`)
   };
 
   const articulos = [];
 
   for (let i = 0; i < 10; i++) {
     articulos.push({
-      nombre: `${nombreCategoria} Artículo ${i + 1}`,
+      nombre: datos.nombres[i] || `${nombreCategoria} Artículo ${i + 1}`,
       descripcion: datos.descripciones[i] || `Descripción del artículo ${i + 1}`,
       precio: datos.precios[i],
       img: datos.imagenes[i]
