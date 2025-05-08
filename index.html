@@ -259,19 +259,12 @@
   }
 
   function generarArticulos(nombreCategoria) {
-   const datosPorCategoria = {
+  const datosPorCategoria = {
     "Motor": {
       nombres: [
-        "Motor Yamaha 150cc",
-        "Bloque Reforzado MX",
-        "Kit de Cilindro y Pistón",
-        "Cigüeñal Templado",
-        "Cabezal Optimizado",
-        "Bomba de Aceite HP",
-        "Árbol de Levas Racing",
-        "Válvulas de Titanio",
-        "Motor Reacondicionado",
-        "Encendido Electrónico"
+        "Motor Yamaha 150cc", "Bloque Reforzado MX", "Kit de Cilindro y Pistón",
+        "Cigüeñal Templado", "Cabezal Optimizado", "Bomba de Aceite HP",
+        "Árbol de Levas Racing", "Válvulas de Titanio", "Motor Reacondicionado", "Encendido Electrónico"
       ],
       precios: [650, 720, 580, 900, 750, 820, 610, 670, 790, 850],
       imagenes: [
@@ -301,16 +294,9 @@
     },
     "Suspencion": {
       nombres: [
-        "Amortiguador Trasero Pro",
-        "Resorte de Suspensión Alta",
-        "Suspensión Hidráulica Frontal",
-        "Kit de Horquilla Deportiva",
-        "Soporte de Amortiguador CNC",
-        "Amortiguador con Gas Nitrogenado",
-        "Suspensión Ajustable Racing",
-        "Horquilla Telescópica Premium",
-        "Sistema de Doble Amortiguador",
-        "Buje de Suspensión Reforzado"
+        "Amortiguador Trasero Pro", "Resorte de Suspensión Alta", "Suspensión Hidráulica Frontal",
+        "Kit de Horquilla Deportiva", "Soporte de Amortiguador CNC", "Amortiguador con Gas Nitrogenado",
+        "Suspensión Ajustable Racing", "Horquilla Telescópica Premium", "Sistema de Doble Amortiguador", "Buje de Suspensión Reforzado"
       ],
       precios: [430, 390, 610, 550, 470, 490, 650, 720, 580, 600],
       imagenes: [
@@ -357,7 +343,27 @@
       img: datos.imagenes[i]
     });
   }
-   return articulos;
+
+  return articulos;
+}
+
+function mostrarArticulos(nombreCategoria) {
+  const contenedor = document.getElementById("contenedor-articulos");
+  contenedor.innerHTML = "";
+
+  const articulos = generarArticulos(nombreCategoria);
+
+  articulos.forEach(articulo => {
+    const div = document.createElement("div");
+    div.className = "tarjeta";
+    div.innerHTML = `
+      <img src="${articulo.img}" alt="${articulo.nombre}">
+      <h3>${articulo.nombre}</h3>
+      <p>${articulo.descripcion}</p>
+      <p><strong>$${articulo.precio}</strong></p>
+    `;
+    contenedor.appendChild(div);
+  });
 }
 </script>
 
