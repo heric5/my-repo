@@ -282,7 +282,6 @@
 <section id="carro">
   <h2>Carro de Compras</h2>
   <div id="carro-lista"></div>
-  <h3>Total: $<span id="carro-total">0.00</span></h3>  <!-- Aquí se mostrará el total -->
   <button id="hacer-pedido" onclick="hacerPedido()">Hacer Pedido</button>
 </section>
 
@@ -392,6 +391,33 @@
     if (id === 'carro') mostrarCarrito();
   }
 
+  function mostrarCategoria(nombre) {
+    const contenedor = document.getElementById('subcatalogo');
+    const detalle = document.getElementById('detalle');
+    detalle.innerHTML = "";
+    contenedor.innerHTML = `<h3>${nombre.charAt(0).toUpperCase() + nombre.slice(1)}</h3><div class='catalogo'>` +
+      categorias[nombre].map((a, i) => `
+        <div class='producto' onclick='mostrarDetalle("${nombre}", ${i})'>
+          <img src='${a.img}'>
+          <h4>${a.nombre}</h4>
+          <p>$${a.precio}</p>
+        </div>
+      `).join('') + '</div>';
+  }
+
+  function mostrarDetalle(categoria, index) {
+    const producto = categorias[categoria][index];
+    const detalle = document.getElementById('detalle');
+    detalle.innerHTML = `
+      <h3>${producto.nombre}</h3>
+      <img src='${producto.img}'>
+      <p>${producto.descripcion}</p>
+      <p><strong>Precio: $${producto.precio}</strong></p>
+      <button onclick='agregarCarrito("${producto.nombre}", ${producto.precio})'>Añadir al Carrito</button>
+    `;
+    detalle.scrollIntoView({ behavior: 'smooth' });
+  }
+
   function agregarCarrito(nombre, precio) {
     const existente = carrito.find(item => item.nombre === nombre);
     if (existente) {
@@ -400,14 +426,11 @@
       carrito.push({ nombre, precio, cantidad: 1 });
     }
     alert("Producto añadido al carrito");
-    mostrarCarrito();  // Actualizar la vista del carrito
   }
 
   function mostrarCarrito() {
     const contenedor = document.getElementById('carro-lista');
     contenedor.innerHTML = '';
-    let total = 0;
-
     carrito.forEach((item, index) => {
       contenedor.innerHTML += `
         <div class='carro-item'>
@@ -416,33 +439,25 @@
           <button onclick='eliminarDelCarrito(${index})'>Eliminar</button>
         </div>
       `;
-      total += item.precio * item.cantidad;  // Sumar el precio por cantidad
     });
-
-    // Mostrar el total
-    const totalContenedor = document.getElementById('carro-total');
-    totalContenedor.innerText = `$${total.toFixed(2)}`;  // Formatear el total
   }
 
   function actualizarCantidad(index, cantidad) {
     carrito[index].cantidad = parseInt(cantidad);
-    mostrarCarrito();  // Volver a mostrar el carrito y el total
+    mostrarCarrito();
   }
 
   function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
-    mostrarCarrito();  // Volver a mostrar el carrito y el total
+    mostrarCarrito();
   }
 
   function hacerPedido() {
-    if (carrito.length === 0) {
-      alert("Tu carrito está vacío.");
-      return;
-    }
     alert("Pedido realizado. Gracias por su compra.");
-    carrito.length = 0;  // Limpiar el carrito
-    mostrarCarrito();  // Actualizar la vista del carrito
+    carrito.length = 0;
+    mostrarCarrito();
   }
+
 
   function generarArticulos(nombreCategoria) {
   const datosPorCategoria = {
